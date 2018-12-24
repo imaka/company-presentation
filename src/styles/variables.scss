@@ -1,13 +1,14 @@
 // Set your brand colors
 $black: hsl(0, 0%, 4%);
 $white-bis: hsl(0, 0%, 98%);
+$red: #e33d3d;
 
 // Update Bulma's global variables
 $primary: $black;
-$secondary: $white-bis;
+$secondary: $red;
 
 $family-sans-serif: "Nunito", sans-serif;
-$family-serif: serif;
-$family-primary: $family-sans-serif;
+$family-serif: "Berling", serif;
+$family-primary: $family-serif;
 $family-secondary: $family-sans-serif;
-$link: $primary;
+$link: $red;
