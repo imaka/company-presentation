@@ -10,7 +10,6 @@ Once you've got your CosmicJS App created, fill the data on the `environment` fi
   production: true|false,
   read_key: 'COSMIC_READ_KEY',
   write_key: 'COSMIC_WRITE_KEY',
-  bucket_id: 'BUCKET_ID',
   bucket_slug: 'BUCKET_SLUG',
   URL: 'https://api.cosmicjs.com/v1/',
   presets: 'YOUR_PRESETS_OBJECT_SLUG'
