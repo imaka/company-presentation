@@ -9,7 +9,7 @@
     </div>
     <ng-container *ngIf="page.related">
     <div class="hero-foot">
-      <nav class="tabs is-fullwidth">
+      <nav class="tabs is-fullwidth related">
         <div class="container">
           <ul>
             <li *ngFor="let page of page.related"><a [routerLink]="['/', page.slug]">{{page.title}}</a></li>
