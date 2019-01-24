@@ -1,6 +1,11 @@
 @import "../styles/variables.scss";
 
-// to be removed on bulma 0.7.3
+// to be removed on bulma 0.7.3, there will be a class for it
 .is-family-secondary {
   font-family: $family-secondary;
+}
+
+.footer {
+  // to be removed on bulma 0.7.3, there will be a padding footer variable
+  padding: 0 0 3rem;
 }

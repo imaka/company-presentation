@@ -3,16 +3,12 @@
 <router-outlet></router-outlet>
 
 <footer class="footer is-family-secondary">
+  <section>
+    <app-external-links></app-external-links>
+  </section>
     <section class="section">
         <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <app-external-links></app-external-links>
-                </div>
-                <div class="column">
-                    <app-navigation-links [navigationID]="footerNavigationID"></app-navigation-links>
-                </div>
-            </div>
+          <app-navigation-links [navigationID]="footerNavigationID"></app-navigation-links>
         </div>
       </section>
 </footer>
