@@ -8,7 +8,7 @@ declare var ga: Function;
 @Injectable({
   providedIn: 'root'
 })
-export class AnalyticsService {
+export class GoogleAnalyticsService {
   constructor(private router: Router) {}
 
   initialize(ua: string) {
@@ -18,6 +18,7 @@ export class AnalyticsService {
       if (event instanceof NavigationEnd) {
         ga('set', 'page', event.url);
         ga('send', 'pageview');
+        console.log(`sent pageview: ${event.url}`);
       }
     });
   }
