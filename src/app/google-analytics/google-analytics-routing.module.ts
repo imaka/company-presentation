@@ -1,6 +1,6 @@
 import { NgModule, InjectionToken } from '@angular/core';
 import { Routes, RouterModule, ActivatedRouteSnapshot } from '@angular/router';
-import { DummyComponent } from './dummy/dummy.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const externalUrlProvider = new InjectionToken('externalUrlRedirectResolver');
 
@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     canActivate: [externalUrlProvider],
-    component: DummyComponent
+    component: NotFoundComponent
   }
 ];
 
