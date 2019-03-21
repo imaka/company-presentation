@@ -5,10 +5,11 @@ import { MenuComponent } from './menu/menu.component';
 import { throwIfAlreadyLoaded } from './_guards/module-import-guards';
 import { ExternalLinksComponent } from './external-links/external-links.component';
 import { NavigationLinksComponent } from './navigation-links/navigation-links.component';
+import { GoogleAnalyticsModule } from '../google-analytics';
 
 @NgModule({
   declarations: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, GoogleAnalyticsModule],
   exports: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent]
 })
 export class CoreModule {
