@@ -10,6 +10,7 @@ export class GoogleAnalyticsTrackClickEventDirective {
 
   @HostListener('click', ['$event'])
   clicked(event: Event) {
+    event.preventDefault();
     const url = this.el.nativeElement.href;
     if (!url) {
       return;
@@ -19,10 +20,6 @@ export class GoogleAnalyticsTrackClickEventDirective {
       this.googleAnalyticsService.trackEvent('Link', 'Click', 'External', url);
     }
 
-    this.router.navigate([`/${this.googleAnalyticsService.getMiddleRoute}`, { externalUrl: url }], {
-      skipLocationChange: true
-    });
-
-    event.preventDefault();
+    window.open(url, '_blank');
   }
 }

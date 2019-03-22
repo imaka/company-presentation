@@ -6,10 +6,6 @@ const routes: Routes = [
     path: 'blog',
     loadChildren: './blog/blog.module#BlogModule'
   },*/
-  {
-    path: 'external-redirect',
-    loadChildren: './google-analytics/google-analytics.module#GoogleAnalyticsModule'
-  },
   { path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },
   {
     path: '',
