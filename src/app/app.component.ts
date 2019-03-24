@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CosmicService, FaviconService } from './core';
-import { GoogleAnalyticsService } from './google-analytics';
+import { AnalyticsService } from './ng-simple-analytics';
 import { Title } from '@angular/platform-browser';
 import { environment } from '@environments/environment';
 
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     private cosmicService: CosmicService,
     private titleService: Title,
     private faviconService: FaviconService,
-    private googleAnalyticsService: GoogleAnalyticsService
+    private analyticsService: AnalyticsService
   ) {}
 
   ngOnInit() {
@@ -32,8 +32,8 @@ export class AppComponent implements OnInit {
         this.footerNavigationID = presets.footerNavigation._id;
       }
 
-      if (environment.production && presets.trackingID) {
-        this.googleAnalyticsService.initialize(presets.trackingID);
+      if (!environment.production && presets.trackingID) {
+        this.analyticsService.initialize(presets.trackingID);
       }
     });
   }

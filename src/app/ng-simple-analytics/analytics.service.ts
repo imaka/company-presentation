@@ -8,7 +8,7 @@ declare var ga: Function;
 @Injectable({
   providedIn: 'root'
 })
-export class GoogleAnalyticsService {
+export class AnalyticsService {
   constructor(private router: Router) {}
 
   private initialized: Boolean = false;
