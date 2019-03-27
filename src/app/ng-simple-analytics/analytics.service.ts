@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { NgTemplateOutlet } from '@angular/common';
 declare var ga: Function;
 
 /**
@@ -21,7 +22,6 @@ export class AnalyticsService {
       if (event instanceof NavigationEnd) {
         ga('set', 'page', event.url);
         ga('send', 'pageview');
-        console.log(`pageview sent: ${event.url}`);
       }
     });
 
@@ -34,9 +34,7 @@ export class AnalyticsService {
   }
 
   /** Sends an event */
-  trackEvent(category: string, action: string, label: string, value: string) {
-    ga('send', 'event', category, action, label, value);
-
-    console.log(`event sent: ${value}`);
+  trackEvent(args) {
+    ga('send', 'event', ...args);
   }
 }
