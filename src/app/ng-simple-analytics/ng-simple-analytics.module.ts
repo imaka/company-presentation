@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TrackClickDirective } from './track-click.directive';
+import { TrackLinkClickDirective } from './track-link-click.directive';
+import { TrackStandardEventDirective } from './track-standard-event.directive';
 
 @NgModule({
-  declarations: [TrackClickDirective],
+  declarations: [TrackLinkClickDirective, TrackStandardEventDirective],
   imports: [CommonModule],
-  exports: [TrackClickDirective]
+  exports: [TrackLinkClickDirective, TrackStandardEventDirective]
 })
 export class NgSimpleAnalyticsModule {}

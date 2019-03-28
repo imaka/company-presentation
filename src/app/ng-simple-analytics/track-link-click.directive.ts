@@ -3,27 +3,23 @@ import { Router } from '@angular/router';
 import { AnalyticsService } from './analytics.service';
 
 @Directive({
-  selector: 'a[appNgSimpleAnalyticsTrackClick]'
+  selector: 'a[appNgSimpleAnalyticsTrackLinkClick]'
 })
-export class TrackClickDirective {
+export class TrackLinkClickDirective {
   constructor(private el: ElementRef, private router: Router, private analyticsService: AnalyticsService) {}
 
   // tslint:disable-next-line:no-input-rename
-  @Input('appNgSimpleAnalyticsTrackClick') eventArguments: any[];
+  /** something */
+  @Input('appNgSimpleAnalyticsTrackLinkClick') eventArguments: string;
 
-  @HostListener('click', ['$event'])
-  clicked(event: Event) {
+  @HostListener('mousedown', ['$event'])
+  contextmenuopened(event: MouseEvent) {
     if (!this.eventArguments) {
       return;
     }
 
     if (this.analyticsService.isInitialized()) {
-      this.analyticsService.trackEvent(this.eventArguments);
+      this.analyticsService.trackEvent(['Link', 'Click', this.eventArguments, event.button]);
     }
-  }
-
-  @HostListener('contextmenu', ['$event'])
-  contextmenuopened(event: Event) {
-    // do something
   }
 }
