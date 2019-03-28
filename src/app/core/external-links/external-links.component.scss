@@ -15,18 +15,19 @@
 }
 
 ul {
-  background-color: $red;
+  background-color: $external-links-background;
   overflow: hidden;
 
   li {
     margin: 7px 0;
   }
-  
+
   .link {
-    color: $white-bis;
-    
+    color: $external-links-color;
+
     &:hover {
       text-decoration: underline;
+      color: $external-links-color-hover;
     }
   }
 }
