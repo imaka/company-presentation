@@ -8,7 +8,7 @@
     a.navbar-item, a.navbar-link {
       &.is-active {
         background-color: inherit !important;
-        border-bottom: 4px solid $secondary;
+        border-bottom: 4px solid $navbar-accent-color;
         padding-bottom: 5px;
       }
     }
@@ -16,7 +16,7 @@
       border-top: none;
 
       a.navbar-item:hover {
-        color: $secondary;
+        color: $navbar-accent-color;
       }
     }
 
@@ -25,8 +25,12 @@
   &.is-active {
     a.navbar-item, a.navbar-link {
       &.is-active {
+        background-color: inherit;
         border-bottom: none;
       }
+    }
+    a.navbar-item:hover, a.navbar-link:hover {
+      background-color: inherit;
     }
   }
 }

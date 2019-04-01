@@ -2,22 +2,27 @@
 $black: hsl(0, 0%, 4%);
 $white-bis: hsl(0, 0%, 98%);
 $red: #e33d3d;
-$orange: #e36324;
-$ocher: #d5b17d;
-$grey: #545567;
-$white: #e5d9cd;
+$contrast: #E36323;
+$split: #D5B17E;
+$dark-neutral: #545667;
+$medium-neutral:#E5D9CD;
+$clear-neutral: #FFFCF2;
 
 // Update local variables
-$content-background-color: $white-bis;
-$external-links-background: $ocher;
-$external-links-color: $orange;
-$external-links-color-hover: $grey;
+$content-background-color: $clear-neutral;
+$external-links-background: $split;
+$external-links-color: $clear-neutral;
+$external-links-color-hover: $dark-neutral;
+$footer-color: $medium-neutral;
+$navbar-accent-color: $contrast;
 
 // Update Bulma's global variables
+$body-background-color: $dark-neutral;
 $family-primary: "Quicksand", sans-serif;
 $family-secondary: "Oswald", sans-serif;
-$footer-background-color: $grey;
+$footer-background-color: $dark-neutral;
 $footer-padding: 0 0 3rem;
-$link: $orange;
-$primary: $grey;
-$secondary: $orange;
+$link: $contrast;
+$navbar-background-color: $clear-neutral;
+$navbar-dropdown-background-color: $clear-neutral;
+$text: $dark-neutral;

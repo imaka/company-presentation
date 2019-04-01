@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
         this.footerNavigationID = presets.footerNavigation._id;
       }
 
-      if (!environment.production && presets.trackingID) {
+      if (environment.production && presets.trackingID) {
         this.analyticsService.initialize(presets.trackingID);
       }
     });
