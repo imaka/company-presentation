@@ -1,7 +1,9 @@
 @import "../../../styles/variables.scss";
 
 // Override Bulma
-
+.navbar-brand img {
+  max-width: unset;
+}
 .navbar-menu {
   // Menu is not open, normal state
   &:not(.is-active) {
