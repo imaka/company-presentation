@@ -25,13 +25,9 @@ export class PageComponent implements OnInit {
   }
 
   setBackground() {
-    if (this.page.banner) {
-      const styles: Object = {
-        background: `url(${this.page.banner}) center center / cover no-repeat`
-      };
-      return styles;
-    } else {
-      return null;
-    }
+    const styles: Object = {
+      background: `url(${this.page.banner}) center center / cover no-repeat`
+    };
+    return styles;
   }
 }
