@@ -1,0 +1,12 @@
+<section>
+  <app-external-links></app-external-links>
+</section>
+<section class="section">
+  <div class="container">
+    <app-navigation-links [navigationID]="footerNavigationID"></app-navigation-links>
+  </div>
+  <div class="container">
+    <article *ngIf="gdprInfo" [innerHTML]="gdprInfo">
+    </article>
+  </div>
+</section>

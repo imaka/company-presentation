@@ -6,11 +6,12 @@ import { throwIfAlreadyLoaded } from './_guards/module-import-guards';
 import { ExternalLinksComponent } from './external-links/external-links.component';
 import { NavigationLinksComponent } from './navigation-links/navigation-links.component';
 import { NgSimpleAnalyticsModule } from '../ng-simple-analytics';
+import { FooterContentComponent } from './footer-content/footer-content.component';
 
 @NgModule({
-  declarations: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent],
+  declarations: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent, FooterContentComponent],
   imports: [CommonModule, RouterModule, NgSimpleAnalyticsModule],
-  exports: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent]
+  exports: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent, FooterContentComponent]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

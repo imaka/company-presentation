@@ -7,6 +7,7 @@ export class Preset {
   companyLogoUrl: string;
   faviconUrl: string;
   footerNavigation: Navigation;
+  gdpr: string;
   homepage: Page;
   mainNavigation: Navigation;
   slug: string;
@@ -18,6 +19,7 @@ export class Preset {
     this.companyName = obj.metadata.company_name;
     this.companyLogoUrl = obj.metadata.company_logo ? obj.metadata.company_logo.url : '';
     this.faviconUrl = obj.metadata.favicon ? obj.metadata.favicon.url : '';
+    this.gdpr = obj.metadata.gdpr ? obj.metadata.gdpr : '';
     this.homepage = new Page(obj.metadata.homepage);
     this.mainNavigation = new Navigation(obj.metadata.main_navigation);
     this.slug = obj.slug;

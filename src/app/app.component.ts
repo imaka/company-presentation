@@ -10,8 +10,6 @@ import { environment } from '@environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public footerNavigationID: string;
-
   constructor(
     private cosmicService: CosmicService,
     private titleService: Title,
@@ -27,10 +25,6 @@ export class AppComponent implements OnInit {
     this.cosmicService.getMainPresets().subscribe(presets => {
       this.faviconService.setFavicon(presets.faviconUrl);
       this.titleService.setTitle(presets.companyName);
-
-      if (presets.footerNavigation) {
-        this.footerNavigationID = presets.footerNavigation._id;
-      }
 
       if (environment.production && presets.trackingID) {
         this.analyticsService.initialize(presets.trackingID);
