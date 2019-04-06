@@ -8,13 +8,21 @@ import { CosmicService } from '../_services/cosmic.service';
 })
 export class FooterContentComponent implements OnInit {
   public footerNavigationID: string;
-  public gdprInfo: string;
+  public gdpr: {
+    link: string;
+    text: string;
+    title: string;
+  };
 
   constructor(private cosmicService: CosmicService) {}
 
   ngOnInit() {
     this.cosmicService.getMainPresets().subscribe(presets => {
-      this.gdprInfo = presets.gdpr;
+      this.gdpr = {
+        link: presets.gdprPage ? presets.gdprPage.slug : null,
+        text: presets.gdprText ? presets.gdprText : null,
+        title: presets.gdprPage ? presets.gdprPage.title : null
+      };
 
       if (presets.footerNavigation) {
         this.footerNavigationID = presets.footerNavigation._id;

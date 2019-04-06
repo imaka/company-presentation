@@ -6,7 +6,11 @@
     <app-navigation-links [navigationID]="footerNavigationID"></app-navigation-links>
   </div>
   <div class="container column">
-    <article *ngIf="gdprInfo" [innerHTML]="gdprInfo">
+    <article *ngIf="gdpr.text">
+      <span [innerHTML]="gdpr.text"></span>
+      <a *ngIf="gdpr.link" [routerLink]="['/', gdpr.link]">
+        {{gdpr.title}}
+      </a>
     </article>
   </div>
 </section>
