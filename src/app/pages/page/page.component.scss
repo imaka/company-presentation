@@ -1,5 +1,12 @@
 @import "../../../styles/variables.scss";
 
+.content {
+  background-color: $content-background-color;
+  margin-bottom: 0;
+}
+.hero {
+  background-color: $content-background-color;
+}
 .title {
   font-family: $family-secondary;
   margin-bottom: 0;
@@ -10,8 +17,4 @@
 }
 .related {
   background: rgba(0,0,0,0.5);
-}
-.content {
-  background-color: $content-background-color;
-  margin-bottom: 0;
 }
