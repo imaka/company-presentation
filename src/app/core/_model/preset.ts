@@ -6,6 +6,7 @@ export class Preset {
   companyName: string;
   companyLogoUrl: string;
   faviconUrl: string;
+  footerLogo: string;
   footerNavigation: Navigation;
   gdprText: string;
   gdprPage: Page;
@@ -32,6 +33,9 @@ export class Preset {
     }
     if (obj.metadata.gdpr_page) {
       this.gdprPage = new Page(obj.metadata.gdpr_page);
+    }
+    if (obj.metadata.footer_logo) {
+      this.footerLogo = obj.metadata.footer_logo.url;
     }
   }
 }

@@ -13,6 +13,7 @@ export class FooterContentComponent implements OnInit {
     text: string;
     title: string;
   };
+  public footerLogo: string;
 
   constructor(private cosmicService: CosmicService) {}
 
@@ -26,6 +27,9 @@ export class FooterContentComponent implements OnInit {
 
       if (presets.footerNavigation) {
         this.footerNavigationID = presets.footerNavigation._id;
+      }
+      if (presets.footerLogo) {
+        this.footerLogo = presets.footerLogo;
       }
     });
   }
