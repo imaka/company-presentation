@@ -1,6 +1,13 @@
 {
-  "name": "company-presentation",
-  "version": "0.0.0",
+  "name": "textual-studio",
+  "version": "1.0.0",
+  "description": "Angular portfolio website working with headless CMS CosmicJS",
+  "author": "Diego Perez <dperezmartinez@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imaka/Textual-Studio.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
