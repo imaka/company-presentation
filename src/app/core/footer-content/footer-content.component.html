@@ -3,9 +3,9 @@
 </section>
 <section class="section columns is-desktop">
   <div class="container column">
-    <app-navigation-links [navigationID]="footerNavigationID"></app-navigation-links>
   </div>
   <div class="container column">
+    <app-navigation-links [navigationID]="footerNavigationID"></app-navigation-links>
     <article *ngIf="gdpr && gdpr.text">
       <span [innerHTML]="gdpr.text"></span>
       <a *ngIf="gdpr.link" [routerLink]="['/', gdpr.link]">
@@ -16,7 +16,7 @@
 </section>
 
 <section class="columns is-mobile">
-<div class="column is-one-fifth-desktop is-offset-two-fifths-desktop is-half-mobile is-offset-one-quarter-mobile">
+  <div class="column is-one-fifth-desktop is-offset-two-fifths-desktop is-half-mobile is-offset-one-quarter-mobile">
     <img *ngIf="footerLogo" src={{footerLogo}} />
   </div>
 </section>

@@ -9,11 +9,10 @@ export class TrackLinkClickDirective {
   constructor(private el: ElementRef, private router: Router, private analyticsService: AnalyticsService) {}
 
   // tslint:disable-next-line:no-input-rename
-  /** something */
   @Input('appNgSimpleAnalyticsTrackLinkClick') eventArguments: string;
 
   @HostListener('mousedown', ['$event'])
-  contextmenuopened(event: MouseEvent) {
+  linkclicked(event: MouseEvent) {
     if (!this.eventArguments) {
       return;
     }
