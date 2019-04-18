@@ -4,37 +4,38 @@
       <div class="hero-body">
         <div class="container has-text-centered" *ngIf="page.includeTitleInBanner">
           <h1 class="title title-shadow is-size-1">
-            {{page.title}}
+            {{ page.title }}
           </h1>
         </div>
       </div>
       <ng-container *ngIf="page.related">
-      <div class="hero-foot">
-        <nav class="tabs is-fullwidth related">
-          <div class="container">
-            <ul>
-              <li *ngFor="let page of page.related"><a [routerLink]="['/', page.slug]">{{page.title}}</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+        <div class="hero-foot">
+          <nav class="tabs is-fullwidth related">
+            <div class="container">
+              <ul>
+                <li *ngFor="let page of page.related">
+                  <a [routerLink]="['/', page.slug]">{{ page.title }}</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </ng-container>
     </section>
   </ng-container>
   <ng-container *ngIf="!page.showBanner || !page.includeTitleInBanner">
-      <section class="section content has-text-centered">
-        <h1 class="title is-size-1">
-          {{page.title}}
-        </h1>
-      </section>
+    <section class="section content has-text-centered">
+      <h1 class="title is-size-1">
+        {{ page.title }}
+      </h1>
+    </section>
   </ng-container>
   <section class="section content">
-    <div class="container is-size-5" [innerHTML]="page.content | trustContentFromCosmic">
-    </div>
+    <div class="container is-size-5" [innerHTML]="page.content | trustContentFromCosmic"></div>
   </section>
   <section class="section content" *ngIf="page.slug === 'contact'">
     <div class="container is-size-5">
-      <app-contact-form context="{{page.title}}"></app-contact-form>
+      <app-contact-form context="{{ page.title }}"></app-contact-form>
     </div>
   </section>
 </ng-container>

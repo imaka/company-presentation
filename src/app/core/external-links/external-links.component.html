@@ -1,9 +1,9 @@
 <ul *ngIf="links" class="level">
   <li *ngFor="let link of links" class="level-item is-inline-flex-tablet">
-    <a href="{{link.url}}" class="link" target="_blank" [appNgSimpleAnalyticsTrackLinkClick]="link.url">
+    <a href="{{ link.url }}" class="link" target="_blank" [appNgSimpleAnalyticsTrackLinkClick]="link.url">
       <ng-container *ngIf="link.icon">
         <span class="image is-32x32">
-          <img src="{{link.icon}}"/>
+          <img src="{{ link.icon }}" />
         </span>
       </ng-container>
       <div [innerHtml]="link.text"></div>

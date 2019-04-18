@@ -1,26 +1,31 @@
 <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
   <div class="field">
-      <label class="label">Nombre</label>
-      <div class="control">
-          <input type="text" name="name" class="input"
-          required [(ngModel)]="model.name" #name="ngModel">
-      </div>
+    <label class="label">Nombre</label>
+    <div class="control">
+      <input type="text" name="name" class="input" required [(ngModel)]="model.name" #name="ngModel" />
+    </div>
   </div>
   <div class="field">
-      <label class="label">Email</label>
-      <div class="control">
-          <input type="email" name="address" class="input"
-          required email [(ngModel)]="model.address" #address="ngModel">
-      </div>
-      <p [hidden]="address.valid || address.pristine" class="help-text">
-          Escribe una dirección de correo válida, por favor
-      </p>
+    <label class="label">Email</label>
+    <div class="control">
+      <input type="email" name="address" class="input" required email [(ngModel)]="model.address" #address="ngModel" />
+    </div>
+    <p [hidden]="address.valid || address.pristine" class="help-text">
+      Escribe una dirección de correo válida, por favor
+    </p>
   </div>
   <div class="field">
-      <label class="label">¿Qué puedo hacer por ti?</label>
-      <div class="control">
-        <textarea class="textarea" name="message" placeholder="Escribe aquí tu mensaje" required [(ngModel)]="model.message" #message="ngModel"></textarea>
-      </div>
+    <label class="label">¿Qué puedo hacer por ti?</label>
+    <div class="control">
+      <textarea
+        class="textarea"
+        name="message"
+        placeholder="Escribe aquí tu mensaje"
+        required
+        [(ngModel)]="model.message"
+        #message="ngModel"
+      ></textarea>
+    </div>
   </div>
   <button type="submit" class="button is-primary is-large" [disabled]="!contactForm.form.valid">
     <i class="fa fa-paper-plane-o" *ngIf="!loading"></i>
@@ -29,5 +34,5 @@
   </button>
 </form>
 <div [hidden]="!submitted">
-  {{resultMessage}}
+  {{ resultMessage }}
 </div>
