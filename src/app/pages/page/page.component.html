@@ -33,7 +33,7 @@
   <section class="section content">
     <div class="container is-size-5" [innerHTML]="page.content | trustContentFromCosmic"></div>
   </section>
-  <section class="section content" *ngIf="page.slug === 'contact'">
+  <section class="section content" *ngIf="page.includeContactForm">
     <div class="container is-size-5">
       <app-contact-form context="{{ page.title }}"></app-contact-form>
     </div>

@@ -2,6 +2,7 @@ export class Page {
   _id: string;
   banner: string;
   content: string;
+  includeContactForm: boolean;
   includeTitleInBanner: boolean;
   related: Page[];
   showBanner: boolean;
@@ -10,6 +11,7 @@ export class Page {
 
   private SHOW_BANNER = 'Show banner';
   private INCLUDE_TITLE_IN_BANNER = 'Include title in banner';
+  private INCLUDE_CONTACT_FORM = 'Include contact form';
 
   constructor(obj) {
     this._id = obj._id;
@@ -29,6 +31,7 @@ export class Page {
       if (obj.metadata.layout_options) {
         this.showBanner = obj.metadata.layout_options.indexOf(this.SHOW_BANNER) !== -1;
         this.includeTitleInBanner = obj.metadata.layout_options.indexOf(this.INCLUDE_TITLE_IN_BANNER) !== -1;
+        this.includeContactForm = obj.metadata.layout_options.indexOf(this.INCLUDE_CONTACT_FORM) !== -1;
       }
     }
   }
