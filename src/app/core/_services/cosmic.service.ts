@@ -35,7 +35,7 @@ export class CosmicService {
   private externalLinks$: Observable<ExternalLink[]>;
   private externalLink$ = new Map<string, Observable<ExternalLink>>();
 
-  /** GET all presets from the cosmicjs server */
+  /** GET all navigations from the cosmicjs server */
   getNavigations(): Observable<Navigation[]> {
     if (!this.navigations$) {
       this.navigations$ = this.http.get<Navigation[]>(this.navigationsUrl).pipe(
@@ -50,7 +50,7 @@ export class CosmicService {
     return this.navigations$;
   }
 
-  /** GET preset by id. Will 404 if id not found */
+  /** GET navigation by id. Will 404 if id not found */
   getNavigation(id: string): Observable<Navigation> {
     if (!this.navigation$.get(id)) {
       const url = `${this.singleObjectByIdUrl}/${id}`;
