@@ -1,6 +1,10 @@
 @import "../../../styles/variables.scss";
 
 // Override Bulma
+.navbar-brand{
+  padding: 0.5rem 0.25rem;
+}
+
 .navbar-brand img {
   max-width: unset;
 }
