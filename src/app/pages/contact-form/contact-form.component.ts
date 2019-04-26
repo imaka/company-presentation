@@ -9,7 +9,7 @@ import { Email } from 'src/app/core/_model';
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent {
-  @ViewChild('contactForm') public contactForm: NgForm;
+  // @ViewChild('contactForm') public contactForm: NgForm;
   @Input() context: string;
   public submitted = false;
   public loading = false;
@@ -18,7 +18,7 @@ export class ContactFormComponent {
 
   constructor(private mailService: MailService) {}
 
-  onSubmit() {
+  onSubmit(contactForm: NgForm) {
     this.loading = true;
     const subject = `[Web] Email from page: ${this.context}`;
 
@@ -27,8 +27,8 @@ export class ContactFormComponent {
       this.loading = false;
 
       if (response.data) {
-        this.contactForm.reset();
-        this.contactForm.form.markAsPristine();
+        contactForm.reset();
+        contactForm.form.markAsPristine();
         this.resultMessage = '¡Enviado! Muchas gracias por contactar conmigo';
       } else {
         this.resultMessage =
