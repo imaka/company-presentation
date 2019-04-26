@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EMPTY } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { CosmicService } from 'src/app/core';
-import { Page } from 'src/app/core/_model';
+import { Page } from '@models/page';
 
 @Component({
   selector: 'app-page',

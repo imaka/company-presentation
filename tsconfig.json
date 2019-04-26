@@ -18,7 +18,8 @@
       "dom"
     ],
     "paths": {
-      "@environments/*": ["./src/environments/*"]
+      "@environments/*": ["./src/environments/*"],
+      "@models/*": ["./src/models/*"]
     }
   }
 }

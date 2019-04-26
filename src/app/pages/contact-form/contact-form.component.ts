@@ -1,7 +1,7 @@
 import { Component, ViewChild, Input } from '@angular/core';
 import { MailService } from 'src/app/core';
 import { NgForm } from '@angular/forms';
-import { Email } from 'src/app/core/_model';
+import { Email } from '@models/email';
 
 @Component({
   selector: 'app-contact-form',

@@ -4,7 +4,10 @@ import { Observable, of, forkJoin } from 'rxjs';
 import { catchError, map, tap, switchMap, shareReplay, share } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
-import { Navigation, Page, Preset, ExternalLink } from '../_model';
+import { Navigation } from '@models/navigation';
+import { Page } from '@models/page';
+import { Preset } from '@models/preset';
+import { ExternalLink } from '@models/external-link';
 
 /**
  * A service to get data from CosmicJS.

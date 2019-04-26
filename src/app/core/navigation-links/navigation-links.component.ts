@@ -1,5 +1,5 @@
 import { Component, OnChanges, Input } from '@angular/core';
-import { Navigation } from '../_model';
+import { Navigation } from '@models/navigation';
 import { CosmicService } from '../_services/cosmic.service';
 
 @Component({
