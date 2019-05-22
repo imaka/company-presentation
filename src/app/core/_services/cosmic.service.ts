@@ -18,7 +18,7 @@ import { ExternalLink } from '@models/external-link';
 export class CosmicService {
   constructor(private http: HttpClient) {}
 
-  private commonPath = environment.URL + environment.bucket_slug;
+  private commonPath = environment.cms_url + environment.bucket_slug;
   private objectTypePath = this.commonPath + '/object-type';
 
   private singleObjectUrl = this.commonPath + '/object';

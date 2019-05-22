@@ -9,10 +9,11 @@
     "url": "https://github.com/imaka/Textual-Studio.git"
   },
   "scripts": {
+    "config": "ts-node ./src/set-env.ts",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "production": "ng build --prod --aot --optimization",
+    "build-prod-with-config": "npm run config -- --environment=prod && ng build --prod --aot --optimization",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
