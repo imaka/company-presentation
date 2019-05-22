@@ -7,7 +7,7 @@ export const environment = {
   read_key: '',
   write_key: '',
   bucket_slug: '',
-  URL: '',
+  cms_url: '',
   presets: '',
   gcp_send_mail: ''
 };
