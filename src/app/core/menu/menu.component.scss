@@ -8,6 +8,13 @@
 .navbar-brand img {
   max-width: unset;
 }
+
+.navbar-end {
+  @media screen and (min-width: 1088px) {
+    margin-right: 1.125rem;
+  }
+}
+
 .navbar-menu {
   // Menu is not open, normal state
   &:not(.is-active) {
