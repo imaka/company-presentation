@@ -12,11 +12,9 @@ export class ParseLinksDirective {
     const target = event.target as HTMLElement;
     const href = target.getAttribute('href');
     if (target.tagName === 'A' && href) {
-      event.preventDefault();
       if (this.isLocalLink(href)) {
+        event.preventDefault();
         this.router.navigate([href]);
-      } else {
-        window.open(href);
       }
     }
   }
