@@ -6,10 +6,9 @@ import { PageComponent } from './page/page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule } from '@angular/forms';
-import { ParseLinksDirective } from './parse-links.directive';
 
 @NgModule({
-  declarations: [PageComponent, ContactFormComponent, ParseLinksDirective],
+  declarations: [PageComponent, ContactFormComponent],
   imports: [CommonModule, PagesRoutingModule, SharedModule, FormsModule],
   exports: [PageComponent]
 })

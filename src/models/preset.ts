@@ -9,7 +9,6 @@ export class Preset {
   footerLogo: string;
   footerNavigation: Navigation;
   gdprText: string;
-  gdprPage: Page;
   homepage: Page;
   mainNavigation: Navigation;
   slug: string;
@@ -30,9 +29,6 @@ export class Preset {
 
     if (obj.metadata.footer_navigation) {
       this.footerNavigation = new Navigation(obj.metadata.footer_navigation);
-    }
-    if (obj.metadata.gdpr_page) {
-      this.gdprPage = new Page(obj.metadata.gdpr_page);
     }
     if (obj.metadata.footer_logo) {
       this.footerLogo = obj.metadata.footer_logo.url;

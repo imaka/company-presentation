@@ -7,10 +7,11 @@ import { ExternalLinksComponent } from './external-links/external-links.componen
 import { NavigationLinksComponent } from './navigation-links/navigation-links.component';
 import { NgSimpleAnalyticsModule } from '../ng-simple-analytics';
 import { FooterContentComponent } from './footer-content/footer-content.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent, FooterContentComponent],
-  imports: [CommonModule, RouterModule, NgSimpleAnalyticsModule],
+  imports: [CommonModule, RouterModule, NgSimpleAnalyticsModule, SharedModule],
   exports: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent, FooterContentComponent]
 })
 export class CoreModule {
