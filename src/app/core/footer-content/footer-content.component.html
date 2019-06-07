@@ -2,10 +2,12 @@
 <section>
   <app-external-links></app-external-links>
 </section>
+<div class="container">
 <section class="section columns is-desktop">
-  <div class="container column"></div>
   <div class="container column">
     <app-navigation-links [navigationID]="footerNavigationID"></app-navigation-links>
+  </div>
+  <div class="container column">
     <article *ngIf="gdprText">
       <span [innerHTML]="gdprText" appParseLinks></span>
     </article>
@@ -17,4 +19,5 @@
     <img *ngIf="footerLogo" src="{{ footerLogo }}" />
   </div>
 </section>
+</div>
 </footer>
