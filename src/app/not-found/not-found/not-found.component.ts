@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CosmicService } from 'src/app/core';
 
 @Component({
   selector: 'app-not-found',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent implements OnInit {
+  public notFoundContent: string;
 
-  constructor() { }
+  constructor(private cosmicService: CosmicService) {}
 
   ngOnInit() {
+    this.cosmicService.getMainPresets().subscribe(presets => (this.notFoundContent = presets.notFoundContent));
   }
-
 }

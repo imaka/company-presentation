@@ -11,6 +11,7 @@ export class Preset {
   gdprText: string;
   homepage: Page;
   mainNavigation: Navigation;
+  notFoundContent: string;
   slug: string;
   title: string;
   trackingID: string;
@@ -23,6 +24,7 @@ export class Preset {
     this.gdprText = obj.metadata.gdpr_text ? obj.metadata.gdpr_text : '';
     this.homepage = new Page(obj.metadata.homepage);
     this.mainNavigation = new Navigation(obj.metadata.main_navigation);
+    this.notFoundContent = obj.metadata.not_found_content ? obj.metadata.not_found_content : '';
     this.slug = obj.slug;
     this.title = obj.title;
     this.trackingID = obj.metadata.tracking_id ? obj.metadata.tracking_id : '';
