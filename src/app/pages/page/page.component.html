@@ -35,7 +35,11 @@
   </section>
   <section class="section content" *ngIf="page.includeContactForm">
     <div class="container is-size-5">
-      <app-contact-form context="{{ page.title }}"></app-contact-form>
+      <div class="columns">
+        <div class="column is-two-thirds is-offset-2">
+            <app-contact-form context="{{ page.title }}"></app-contact-form>
+        </div>
+      </div>
     </div>
   </section>
 </ng-container>
