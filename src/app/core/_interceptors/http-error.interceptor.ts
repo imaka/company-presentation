@@ -10,8 +10,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError(response => {
-        if (response instanceof HttpErrorResponse && response.status === 404) {
-          this.router.navigateByUrl('/not-found', { skipLocationChange: true });
+        if (response instanceof HttpErrorResponse) {
+          if (response.status === 404) {
+            this.router.navigateByUrl('/not-found', { skipLocationChange: true });
+          } else {
+            window.location.href = 'coming-soon.html';
+          }
           return EMPTY;
         } else {
           return throwError(response);

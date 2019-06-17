@@ -25,7 +25,8 @@
             "assets": [
               "src/_redirects",
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "coming-soon.html", "input": "src/assets/coming-soon", "output": "/" }
             ],
             "styles": [
               "src/styles.scss"
