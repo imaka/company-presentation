@@ -9,7 +9,8 @@ export const environment = {
   bucket_slug: '',
   cms_url: '',
   presets: '',
-  gcp_send_mail: ''
+  gcp_send_mail: '',
+  sentry_dsn: ''
 };
 
 /*

@@ -1,9 +1,10 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule, HttpErrorInterceptor, CosmicInterceptor } from './core';
+import { SentryErrorHandler } from './sentry-error-handler';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,8 @@ import { CoreModule, HttpErrorInterceptor, CosmicInterceptor } from './core';
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
       multi: true
-    }
+    },
+    { provide: ErrorHandler, useClass: SentryErrorHandler }
   ],
   bootstrap: [AppComponent]
 })

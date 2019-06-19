@@ -41,6 +41,11 @@ fs.readFile(targetPath, 'utf8', function(readError, data) {
 
     result = result.replace(/(gcp_send_mail:\s*')(.*)(',)/g, `$1${process.env.GCP_SEND_MAIL}$3`);
   }
+  if (process.env.SENTRY_DNS) {
+    console.log('Updating SENTRY_DSN');
+
+    result = result.replace(/(sentry_dsn:\s*')(.*)(',)/g, `$1${process.env.SENTRY_DSN}$3`);
+  }
 
   fs.writeFile(targetPath, result, 'utf8', function(writeError) {
     if (writeError) {
