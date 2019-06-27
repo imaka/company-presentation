@@ -2,6 +2,7 @@ export class Page {
   _id: string;
   banner: string;
   content: string;
+  handle: string;
   includeContactForm: boolean;
   includeTitleInBanner: boolean;
   related: Page[];
@@ -18,6 +19,7 @@ export class Page {
   constructor(obj) {
     this._id = obj._id;
     this.banner = '';
+    this.handle = obj.handle;
     this.content = obj.content;
     this.related = [];
     this.slug = obj.slug;

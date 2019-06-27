@@ -26,18 +26,18 @@
 
         <ng-template #navbarDropdown>
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" [routerLink]="['/', page.slug]" routerLinkActive="is-active">{{ page.title }}</a>
+            <a class="navbar-link" [routerLink]="['/', page.slug]" routerLinkActive="is-active">{{ page.handle }}</a>
 
             <div class="navbar-dropdown is-transparent">
               <ng-container *ngFor="let related of page.related">
-                <a class="navbar-item" [routerLink]="['/', related.slug]">{{ related.title }}</a>
+                <a class="navbar-item" [routerLink]="['/', related.slug]">{{ related.handle }}</a>
               </ng-container>
             </div>
           </div>
         </ng-template>
 
         <ng-template #navbarLink>
-          <a class="navbar-item" [routerLink]="['/', page.slug]" routerLinkActive="is-active">{{ page.title }}</a>
+          <a class="navbar-item" [routerLink]="['/', page.slug]" routerLinkActive="is-active">{{ page.handle }}</a>
         </ng-template>
       </ng-container>
     </div>
