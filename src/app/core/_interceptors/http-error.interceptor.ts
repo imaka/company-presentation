@@ -13,15 +13,14 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError(response => {
         if (response instanceof HttpErrorResponse) {
+          if (environment.production) {
+            Sentry.captureMessage(`[Handled] HttpErrorResponse with code ${response.status}`);
+          }
           if (response.status === 404) {
             this.router.navigateByUrl('/not-found', { skipLocationChange: true });
           } else {
             window.location.href = 'coming-soon.html';
           }
-          if (environment.production) {
-            Sentry.captureException(response.error.originalError || response.error);
-          }
-
           return EMPTY;
         } else {
           return throwError(response);
