@@ -19,7 +19,7 @@ export class Page {
   constructor(obj) {
     this._id = obj._id;
     this.banner = '';
-    this.handle = obj.handle;
+    this.handle = obj.metadata.handle ? obj.metadata.handle : '';
     this.content = obj.content;
     this.related = [];
     this.slug = obj.slug;
