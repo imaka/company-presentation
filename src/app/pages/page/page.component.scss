@@ -8,9 +8,12 @@
   background-color: $content-background-color;
 }
 .title {
-  color: $clear-neutral;
   font-family: $family-secondary;
   margin-bottom: 0;
+
+  &-light {
+    color: $clear-neutral;
+  }
 
   &-shadow {
     text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
