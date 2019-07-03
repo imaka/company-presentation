@@ -6,12 +6,16 @@ Sentry.init({
   dsn: environment.sentry_dsn
 });
 
-@Injectable()
 export class SentryErrorHandler implements ErrorHandler {
-  constructor() {}
   handleError(error) {
-    if (environment.production) {
-      Sentry.captureException(error.originalError || error);
-    }
+    Sentry.captureException(error.originalError || error);
+  }
+}
+
+export function provideErrorHandler() {
+  if (environment.production) {
+    return new SentryErrorHandler();
+  } else {
+    return new ErrorHandler();
   }
 }

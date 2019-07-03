@@ -4,7 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule, HttpErrorInterceptor, CosmicInterceptor } from './core';
-import { SentryErrorHandler } from './sentry-error-handler';
+import { provideErrorHandler } from './sentry-error-handler';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +21,7 @@ import { SentryErrorHandler } from './sentry-error-handler';
       useClass: HttpErrorInterceptor,
       multi: true
     },
-    { provide: ErrorHandler, useClass: SentryErrorHandler }
+    { provide: ErrorHandler, useFactory: provideErrorHandler }
   ],
   bootstrap: [AppComponent]
 })
