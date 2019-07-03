@@ -18,26 +18,21 @@ export class Page {
 
   constructor(obj) {
     this._id = obj._id;
-    this.banner = '';
+    this.banner = obj.metadata.banner ? obj.metadata.banner.url : '';
     this.handle = obj.metadata.handle ? obj.metadata.handle : '';
     this.content = obj.content;
     this.related = [];
     this.slug = obj.slug;
     this.title = obj.title;
 
-    if (obj.metadata) {
-      if (obj.metadata.related_pages) {
-        obj.metadata.related_pages.map(page => this.related.push(new Page(page)));
-      }
-      if (obj.metadata.banner) {
-        this.banner = obj.metadata.banner.url;
-      }
-      if (obj.metadata.layout_options) {
-        this.showBanner = obj.metadata.layout_options.indexOf(this.SHOW_BANNER) !== -1;
-        this.showTitle = obj.metadata.layout_options.indexOf(this.SHOW_TITLE) !== -1;
-        this.includeTitleInBanner = obj.metadata.layout_options.indexOf(this.INCLUDE_TITLE_IN_BANNER) !== -1;
-        this.includeContactForm = obj.metadata.layout_options.indexOf(this.INCLUDE_CONTACT_FORM) !== -1;
-      }
+    if (obj.metadata.related_pages) {
+      obj.metadata.related_pages.map(page => this.related.push(new Page(page)));
     }
+
+    // Different layout options
+    this.includeTitleInBanner = obj.metadata.layout_options.includes(this.INCLUDE_TITLE_IN_BANNER);
+    this.includeContactForm = obj.metadata.layout_options.includes(this.INCLUDE_CONTACT_FORM);
+    this.showBanner = obj.metadata.layout_options.includes(this.SHOW_BANNER);
+    this.showTitle = obj.metadata.layout_options.includes(this.SHOW_TITLE);
   }
 }

@@ -8,13 +8,10 @@ export class ExternalLink {
 
   constructor(obj) {
     this._id = obj._id;
+    this.icon = obj.metadata.icon ? obj.metadata.icon.url : '';
     this.slug = obj.slug;
     this.title = obj.title;
     this.text = obj.metadata.text;
     this.url = obj.metadata.url;
-
-    if (obj.metadata.icon) {
-      this.icon = obj.metadata.icon.url;
-    }
   }
 }
