@@ -20,5 +20,34 @@
   }
 }
 .related {
-  background: rgba(0,0,0,0.5);
+  background: $content-background-color;
+
+  a {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  li:nth-child(1n) a {
+    color: $split;
+
+    &:hover {
+      border-bottom-color: $split;
+    }
+  }
+
+  li:nth-child(2n) a {
+    color: $dark-neutral;
+
+    &:hover {
+      border-bottom-color: $dark-neutral;
+    }
+  }
+
+  li:nth-child(3n) a {
+    color: $contrast;
+
+    &:hover {
+      border-bottom-color: $contrast;
+    }
+  }
 }
