@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Angular portfolio website working with headless CMS CosmicJS",
   "author": "Diego Perez <dperezmartinez@gmail.com>",
+  "homepage": "https://imaka.github.io",
   "license": "MIT",
   "repository": {
     "type": "git",
