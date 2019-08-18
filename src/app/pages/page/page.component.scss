@@ -3,6 +3,8 @@
 .content {
   background-color: $content-background-color;
   margin-bottom: 0;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 .hero {
   background-color: $content-background-color;
@@ -21,13 +23,18 @@
 }
 .related {
   background: $content-background-color;
+  padding-top: 10px;
 
   a {
     font-weight: bold;
     text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
-  li:nth-child(1n) a {
+  .level-item:nth-child(1n) a {
     color: $split;
 
     &:hover {
@@ -35,7 +42,7 @@
     }
   }
 
-  li:nth-child(2n) a {
+  .level-item:nth-child(2n) a {
     color: $dark-neutral;
 
     &:hover {
@@ -43,7 +50,7 @@
     }
   }
 
-  li:nth-child(3n) a {
+  .level-item:nth-child(3n) a {
     color: $contrast;
 
     &:hover {

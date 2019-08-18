@@ -19,13 +19,9 @@
   </ng-container>
   <ng-container *ngIf="page.related">
     <div class="hero-foot">
-      <nav class="tabs is-fullwidth related">
-        <div class="container">
-          <ul>
-            <li *ngFor="let page of page.related">
-              <a [routerLink]="['/', page.slug]">{{ page.title }}</a>
-            </li>
-          </ul>
+      <nav class="level related">
+        <div class="level-item" *ngFor="let page of page.related">
+          <a [routerLink]="['/', page.slug]">{{ page.title }}</a>
         </div>
       </nav>
     </div>
