@@ -27,7 +27,7 @@
       ></textarea>
     </div>
   </div>
-  <button type="submit" class="button is-primary is-large is-pulled-right" [disabled]="!contactForm.form.valid">
+  <button type="submit" class="button is-primary is-large" [disabled]="!contactForm.form.valid">
     <i class="fa fa-paper-plane-o" *ngIf="!loading"></i>
     <i class="fa fa-circle-o-notch fa-spin" *ngIf="loading"></i>
     &nbsp;Enviar
