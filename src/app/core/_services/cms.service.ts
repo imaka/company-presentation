@@ -44,11 +44,7 @@ export class CmsService {
     return this.preset$.get(id);
   }
 
-  /** Shortcut to GET main preset
-   * If param includeNavigation == true it will get the navigation
-   * and append it to the returned object
-   * @param includeNavigation - optional value to get navigation
-   */
+  /** Shortcut to GET main preset */
   getMainPresets(): Observable<Preset> {
     return this.getPreset(environment.presets);
   }
