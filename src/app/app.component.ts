@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentfulService, FaviconService } from './core';
+import { CmsService, FaviconService } from './core';
 import { AnalyticsService } from './ng-simple-analytics';
 import { Title } from '@angular/platform-browser';
 import { environment } from '@environments/environment';
@@ -11,7 +11,7 @@ import { environment } from '@environments/environment';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private contentfulService: ContentfulService,
+    private cmsService: CmsService,
     private titleService: Title,
     private faviconService: FaviconService,
     private analyticsService: AnalyticsService
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   private getContentfulPresets() {
-    this.contentfulService.getMainPresets().subscribe(presets => {
+    this.cmsService.getMainPresets().subscribe(presets => {
       this.faviconService.setFavicon(presets.faviconUrl);
       this.titleService.setTitle(presets.companyName);
 

@@ -11,7 +11,7 @@ import { ExternalLink } from '@models/external-link';
 @Injectable({
   providedIn: 'root'
 })
-export class ContentfulService {
+export class CmsService {
   constructor(private http: HttpClient) {}
 
   private client = createClient({

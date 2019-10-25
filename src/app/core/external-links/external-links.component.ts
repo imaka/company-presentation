@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExternalLink } from '@models/external-link';
-import { ContentfulService } from '../_services/contentful.service';
+import { CmsService } from '../_services/cms.service';
 
 @Component({
   selector: 'app-external-links',
@@ -10,9 +10,9 @@ import { ContentfulService } from '../_services/contentful.service';
 export class ExternalLinksComponent implements OnInit {
   public links: ExternalLink[];
 
-  constructor(private contentfulService: ContentfulService) {}
+  constructor(private cmsService: CmsService) {}
 
   ngOnInit() {
-    this.contentfulService.getExternalLinks().subscribe(links => (this.links = links));
+    this.cmsService.getExternalLinks().subscribe(links => (this.links = links));
   }
 }

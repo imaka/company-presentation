@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentfulService } from '../_services/contentful.service';
+import { CmsService } from '../_services/cms.service';
 import { Page } from '@models/page';
 
 @Component({
@@ -12,10 +12,10 @@ export class FooterContentComponent implements OnInit {
   public gdprText: string;
   public footerLogo: string;
 
-  constructor(private contentfulService: ContentfulService) {}
+  constructor(private cmsService: CmsService) {}
 
   ngOnInit() {
-    this.contentfulService.getMainPresets().subscribe(presets => {
+    this.cmsService.getMainPresets().subscribe(presets => {
       if (presets.gdprText) {
         this.gdprText = presets.gdprText;
       }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentfulService } from '../_services/contentful.service';
+import { CmsService } from '../_services/cms.service';
 import { Page } from '@models/page';
 
 @Component({
@@ -13,10 +13,10 @@ export class MenuComponent implements OnInit {
   public title: string;
   public isMenuActive: Boolean = false;
 
-  constructor(private contentfulService: ContentfulService) {}
+  constructor(private cmsService: CmsService) {}
 
   ngOnInit() {
-    this.contentfulService.getMainPresets().subscribe(presets => {
+    this.cmsService.getMainPresets().subscribe(presets => {
       this.logo = presets.companyLogoUrl;
       this.navigation = presets.mainNavigation;
       this.title = presets.companyName;

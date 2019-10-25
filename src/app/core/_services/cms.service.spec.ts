@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ContentfulService } from './contentful.service';
+import { CmsService } from './cms.service';
 
-describe('ContentfulService', () => {
+describe('cmsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ContentfulService = TestBed.get(ContentfulService);
+    const service: CmsService = TestBed.get(CmsService);
     expect(service).toBeTruthy();
   });
 });
