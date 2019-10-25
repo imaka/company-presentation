@@ -27,7 +27,7 @@
     </div>
   </ng-container>
   <section class="section content">
-    <div class="container is-size-5" [innerHTML]="page.content | trustContentFromCosmic"  appParseLinks></div>
+    <div class="container is-size-5" [innerHTML]="page.content | trustContentFromCMS"  appParseLinks></div>
   </section>
   <section class="section content" *ngIf="page.includeContactForm">
     <div class="container is-size-5">

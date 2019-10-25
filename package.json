@@ -1,7 +1,7 @@
 {
   "name": "textual-studio",
   "version": "1.0.0",
-  "description": "Angular portfolio website working with headless CMS CosmicJS",
+  "description": "Portfolio website for Textual Studio, made with Angular and Contentful",
   "author": "Diego Perez <dperezmartinez@gmail.com>",
   "homepage": "https://imaka.github.io",
   "license": "MIT",
