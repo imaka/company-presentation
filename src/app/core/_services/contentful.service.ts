@@ -15,8 +15,8 @@ export class ContentfulService {
   constructor(private http: HttpClient) {}
 
   private client = createClient({
-    space: 'sn3lna5nhl2k',
-    accessToken: 'XFqxnV64MtniZzDfl7JpCs3nIMqI0HbKrdWCtEEmE2I'
+    space: environment.space,
+    accessToken: environment.accessToken
   });
 
   private preset$ = new Map<string, Observable<Preset>>();
@@ -50,7 +50,7 @@ export class ContentfulService {
    * @param includeNavigation - optional value to get navigation
    */
   getMainPresets(): Observable<Preset> {
-    return this.getPreset('2YsXuyl7Z5FkTH8BkgbkU8');
+    return this.getPreset(environment.presets);
   }
 
   /** GET page by slug. Will 404 if id not found */
