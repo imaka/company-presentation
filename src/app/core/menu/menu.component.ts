@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Navigation } from '@models/navigation';
-import { CosmicService } from '../_services/cosmic.service';
+import { ContentfulService } from '../_services/contentful.service';
+import { Page } from '@models/page';
 
 @Component({
   selector: 'app-menu',
@@ -9,14 +9,14 @@ import { CosmicService } from '../_services/cosmic.service';
 })
 export class MenuComponent implements OnInit {
   public logo: string;
-  public navigation: Navigation;
+  public navigation: Page[];
   public title: string;
   public isMenuActive: Boolean = false;
 
-  constructor(private cosmicService: CosmicService) {}
+  constructor(private contentfulService: ContentfulService) {}
 
   ngOnInit() {
-    this.cosmicService.getMainPresets(true).subscribe(presets => {
+    this.contentfulService.getMainPresets().subscribe(presets => {
       this.logo = presets.companyLogoUrl;
       this.navigation = presets.mainNavigation;
       this.title = presets.companyName;

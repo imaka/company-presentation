@@ -171,21 +171,22 @@ export class CosmicService {
    * and append it to the returned object
    * @param includeNavigation - optional value to get navigation
    */
+  /*
   getMainPresets(includeNavigation?: boolean): Observable<Preset> {
     if (includeNavigation) {
       return this.getPreset(environment.presets).pipe(
         switchMap(response => {
-          return forkJoin([of(response), this.getNavigation(response.mainNavigation._id)]);
+          return forkJoin([of(response), this.getNavigation(response.mainNavigation[0]._id)]);
         }),
         map(res => {
-          res[0].mainNavigation = res[1];
+          res[0].mainNavigation[0] = res[1];
           return res[0];
         })
       );
     } else {
       return this.getPreset(environment.presets);
     }
-  }
+  }*/
 
   /**
    * Handle Http operation that failed.

@@ -21,7 +21,7 @@
 
   <div *ngIf="navigation" class="navbar-menu" [ngClass]="{ 'is-active': isMenuActive }">
     <div class="navbar-end">
-      <ng-container *ngFor="let page of navigation.pages">
+      <ng-container *ngFor="let page of navigation">
         <ng-container *ngIf="page.related.length > 0; then navbarDropdown; else navbarLink"> </ng-container>
 
         <ng-template #navbarDropdown>

@@ -1,5 +1,6 @@
 import { Page } from './page';
 import { Navigation } from './navigation';
+import { ParseUtils } from './parse-utils';
 
 export class Preset {
   _id: string;
@@ -7,28 +8,33 @@ export class Preset {
   companyLogoUrl: string;
   faviconUrl: string;
   footerLogo: string;
-  footerNavigation: Navigation;
+  footerNavigation: Page[];
   gdprText: string;
   homepage: Page;
-  mainNavigation: Navigation;
+  mainNavigation: Page[];
   notFoundContent: string;
-  slug: string;
-  title: string;
   trackingID: string;
 
   constructor(obj) {
-    this._id = obj._id;
-    this.companyName = obj.metadata.company_name;
-    this.companyLogoUrl = obj.metadata.company_logo ? obj.metadata.company_logo.url : '';
-    this.faviconUrl = obj.metadata.favicon ? obj.metadata.favicon.url : '';
-    this.footerLogo = obj.metadata.footer_logo ? obj.metadata.footer_logo.url : '';
-    this.footerNavigation = obj.metadata.footer_navigation ? new Navigation(obj.metadata.footer_navigation) : null;
-    this.gdprText = obj.metadata.gdpr_text ? obj.metadata.gdpr_text : '';
-    this.homepage = new Page(obj.metadata.homepage);
-    this.mainNavigation = new Navigation(obj.metadata.main_navigation);
-    this.notFoundContent = obj.metadata.not_found_content ? obj.metadata.not_found_content : '';
-    this.slug = obj.slug;
-    this.title = obj.title;
-    this.trackingID = obj.metadata.tracking_id ? obj.metadata.tracking_id : '';
+    const sys = obj.sys;
+    const fields = obj.fields;
+
+    this._id = sys.id;
+    this.companyName = fields.companyName;
+    this.companyLogoUrl = ParseUtils.getImageURL(fields.companyLogo);
+    this.faviconUrl = ParseUtils.getImageURL(fields.favicon);
+    this.footerLogo = fields.footerLogo ? ParseUtils.getImageURL(fields.footerLogo) : '';
+    this.footerNavigation = [];
+    this.gdprText = ParseUtils.parseRichText(fields.gdprText);
+    this.homepage = new Page(fields.homepage);
+    this.mainNavigation = [];
+    this.notFoundContent = ParseUtils.parseRichText(fields.notFoundContent);
+    this.trackingID = fields.trackingId ? fields.trackingId : '';
+
+    fields.mainNavigation.map(page => this.mainNavigation.push(new Page(page)));
+
+    if (fields.footerNavigation) {
+      fields.footerNavigation.map(page => this.footerNavigation.push(new Page(page)));
+    }
   }
 }
