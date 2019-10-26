@@ -10,9 +10,17 @@ export class ParseUtils {
 
   /** Get image URL from an attribute
    * @param field - field to parse
-   * @param format - optional value, can be 'jpg', 'png', 'webp'
+   * @param format - optional value, can be 'jpg', 'png', 'webp' or 'progressive'
+   * @param progressive - optional value, will return a progressive jpeg
    */
   static getImageURL(field: any, format?: string) {
-    return format ? field.fields.file.url + `?fm=${format}` : field.fields.file.url;
+    const url = field.fields.file.url;
+    if (!format) {
+      return url;
+    } else if (format === 'progressive') {
+      return url + '?fm=jpg&fl=progressive';
+    } else {
+      return url + `?fm=${format}`;
+    }
   }
 }

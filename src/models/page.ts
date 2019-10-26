@@ -18,7 +18,7 @@ export class Page {
     const fields = obj.fields;
 
     this._id = sys.id;
-    this.banner = fields.banner ? ParseUtils.getImageURL(fields.banner) : '';
+    this.banner = fields.banner ? ParseUtils.getImageURL(fields.banner, 'progressive') : '';
     this.handle = fields.handle;
     this.content = ParseUtils.parseRichText(fields.content);
     this.related = [];
