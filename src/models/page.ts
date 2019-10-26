@@ -1,4 +1,4 @@
-import { ParseUtils } from './parse-utils';
+import { ContentfulParser } from './utils/contentful-parser';
 
 export class Page {
   _id: string;
@@ -18,9 +18,9 @@ export class Page {
     const fields = obj.fields;
 
     this._id = sys.id;
-    this.banner = fields.banner ? ParseUtils.getImageURL(fields.banner, 'progressive') : '';
+    this.banner = fields.banner ? ContentfulParser.getImageURL(fields.banner, 'progressive') : '';
     this.handle = fields.handle;
-    this.content = ParseUtils.parseRichText(fields.content);
+    this.content = ContentfulParser.parseRichText(fields.content);
     this.related = [];
     this.slug = fields.slug;
     this.title = fields.title;

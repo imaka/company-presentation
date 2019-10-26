@@ -1,6 +1,6 @@
 import { Page } from './page';
 import { Navigation } from './navigation';
-import { ParseUtils } from './parse-utils';
+import { ContentfulParser } from './utils/contentful-parser';
 
 export class Preset {
   _id: string;
@@ -21,14 +21,14 @@ export class Preset {
 
     this._id = sys.id;
     this.companyName = fields.companyName;
-    this.companyLogoUrl = ParseUtils.getImageURL(fields.companyLogo);
-    this.faviconUrl = ParseUtils.getImageURL(fields.favicon);
-    this.footerLogo = fields.footerLogo ? ParseUtils.getImageURL(fields.footerLogo) : '';
+    this.companyLogoUrl = ContentfulParser.getImageURL(fields.companyLogo);
+    this.faviconUrl = ContentfulParser.getImageURL(fields.favicon);
+    this.footerLogo = fields.footerLogo ? ContentfulParser.getImageURL(fields.footerLogo) : '';
     this.footerNavigation = [];
-    this.gdprText = ParseUtils.parseRichText(fields.gdprText);
+    this.gdprText = ContentfulParser.parseRichText(fields.gdprText);
     this.homepage = new Page(fields.homepage);
     this.mainNavigation = [];
-    this.notFoundContent = ParseUtils.parseRichText(fields.notFoundContent);
+    this.notFoundContent = ContentfulParser.parseRichText(fields.notFoundContent);
     this.trackingID = fields.trackingId ? fields.trackingId : '';
 
     fields.mainNavigation.map(page => this.mainNavigation.push(new Page(page)));

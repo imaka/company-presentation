@@ -1,6 +1,6 @@
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
-export class ParseUtils {
+export class ContentfulParser {
   /** Transform to plain text. Source text is expected to be valid HTML
    *  @param field - field to parse
    */
