@@ -12,41 +12,50 @@ import { pluck } from 'rxjs/operators';
 })
 export class FaviconService {
   constructor(@Inject(DOCUMENT) private _doc: any) {}
+
   private darkScheme = '(prefers-color-scheme:dark)';
   private prefersColorScheme$ = fromEventPattern(handler => window.matchMedia(this.darkScheme).addListener(handler)).pipe(pluck('matches'));
+
   /**
    * Set the title of the current HTML document.
-   * @param iconURL - New favicon URL
-   * @param altIconURL - Optional, favicon URL for dark theme
+   * @param iconURL - Default favicon URL
+   * @param altIconURL - Optional, dark theme favicon URL
    */
   setFavicon(iconURL: string, altIconURL?: string) {
-    const link = getDOM().querySelector(this._doc, "link[rel*='icon']"); // otherwise create link
+    const link = getDOM().querySelector(this._doc, "link[rel*='icon']") || getDOM().createElement('link');
 
-    if (altIconURL) {
-      if (window.matchMedia(this.darkScheme).matches) {
-        this.appendLinkTag(link, altIconURL, 'dark');
-      } // me falta un else, si no hay icono inicial esto solo funciona en el caso de dark!
-      this.prefersColorScheme$.subscribe(darkTheme => {
-        if (darkTheme) {
-          this.appendLinkTag(link, altIconURL, 'dark');
-        } else {
-          this.appendLinkTag(link, iconURL, 'light');
-        }
-      });
+    if (altIconURL && window.matchMedia(this.darkScheme).matches) {
+      this.appendLinkTag(link, altIconURL);
+      this.subscribeToChangesInTheme(link, iconURL, altIconURL);
     } else {
-      this.appendLinkTag(link, iconURL, 'light');
+      this.appendLinkTag(link, iconURL);
     }
   }
 
-  /** Append new link to HEAD
+  /**
+   * Subscribe to the theme color changes in browser/OS and apply the appropiate favicon
    * @param link - DOM element
-   * @param iconURL - new favicon URL
-   * @param colorScheme - 'dark' or 'light'
+   * @param iconURL - Default favicon URL
+   * @param altIconURL - Optional, dark theme favicon URL
    */
-  private appendLinkTag(link, iconURL, colorScheme) {
+  private subscribeToChangesInTheme(link: any, iconURL: string, altIconURL: string) {
+    this.prefersColorScheme$.subscribe(isDarkTheme => {
+      if (isDarkTheme) {
+        this.appendLinkTag(link, altIconURL);
+      } else {
+        this.appendLinkTag(link, iconURL);
+      }
+    });
+  }
+
+  /**
+   * Append new link to HEAD
+   * @param link - DOM element
+   * @param iconURL - favicon URL
+   */
+  private appendLinkTag(link: any, iconURL: string) {
     link.type = 'image/x-icon';
     link.rel = 'shortcut icon';
-    link.media = `(prefers-color-scheme:${colorScheme})`; // probably not needed atm
     link.href = iconURL;
     getDOM()
       .getElementsByTagName(this._doc, 'head')[0]
