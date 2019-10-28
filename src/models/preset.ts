@@ -4,6 +4,7 @@ import { ContentfulParser } from './utils/contentful-parser';
 
 export class Preset {
   _id: string;
+  alternateFaviconUrl: string;
   companyName: string;
   companyLogoUrl: string;
   faviconUrl: string;
@@ -22,7 +23,8 @@ export class Preset {
     this._id = sys.id;
     this.companyName = fields.companyName;
     this.companyLogoUrl = ContentfulParser.getImageURL(fields.companyLogo);
-    this.faviconUrl = ContentfulParser.getImageURL(fields.favicon);
+    this.faviconUrl = fields.favicon ? ContentfulParser.getImageURL(fields.favicon) : '';
+    this.alternateFaviconUrl = fields.alternativeFavicon ? ContentfulParser.getImageURL(fields.alternativeFavicon) : '';
     this.footerLogo = fields.footerLogo ? ContentfulParser.getImageURL(fields.footerLogo) : '';
     this.footerNavigation = [];
     this.gdprText = ContentfulParser.parseRichText(fields.gdprText);

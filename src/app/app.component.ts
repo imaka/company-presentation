@@ -23,8 +23,13 @@ export class AppComponent implements OnInit {
 
   private getContentfulPresets() {
     this.cmsService.getMainPresets().subscribe(presets => {
-      this.faviconService.setFavicon(presets.faviconUrl);
       this.titleService.setTitle(presets.companyName);
+
+      if (presets.faviconUrl && presets.alternateFaviconUrl) {
+        this.faviconService.setFavicon(presets.faviconUrl, presets.alternateFaviconUrl);
+      } else if (presets.faviconUrl) {
+        this.faviconService.setFavicon(presets.faviconUrl);
+      }
 
       if (environment.production && presets.trackingID) {
         this.analyticsService.initialize(presets.trackingID);
