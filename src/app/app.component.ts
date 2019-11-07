@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CosmicService, FaviconService } from './core';
+import { CmsService } from './core';
 import { AnalyticsService } from './ng-simple-analytics';
 import { Title } from '@angular/platform-browser';
 import { environment } from '@environments/environment';
+import { AngularFaviconService } from 'angular-favicon';
 
 @Component({
   selector: 'app-root',
@@ -11,20 +12,25 @@ import { environment } from '@environments/environment';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private cosmicService: CosmicService,
+    private cmsService: CmsService,
     private titleService: Title,
-    private faviconService: FaviconService,
+    private faviconService: AngularFaviconService,
     private analyticsService: AnalyticsService
   ) {}
 
   ngOnInit() {
-    this.getCosmicPresets();
+    this.getContentfulPresets();
   }
 
-  private getCosmicPresets() {
-    this.cosmicService.getMainPresets().subscribe(presets => {
-      this.faviconService.setFavicon(presets.faviconUrl);
+  private getContentfulPresets() {
+    this.cmsService.getMainPresets().subscribe(presets => {
       this.titleService.setTitle(presets.companyName);
+
+      if (presets.faviconUrl && presets.alternateFaviconUrl) {
+        this.faviconService.setFavicon(presets.faviconUrl, presets.alternateFaviconUrl);
+      } else if (presets.faviconUrl) {
+        this.faviconService.setFavicon(presets.faviconUrl);
+      }
 
       if (environment.production && presets.trackingID) {
         this.analyticsService.initialize(presets.trackingID);

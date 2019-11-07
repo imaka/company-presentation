@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CosmicService } from '../_services/cosmic.service';
 import { ExternalLink } from '@models/external-link';
+import { CmsService } from '../_services/cms.service';
 
 @Component({
   selector: 'app-external-links',
@@ -10,9 +10,9 @@ import { ExternalLink } from '@models/external-link';
 export class ExternalLinksComponent implements OnInit {
   public links: ExternalLink[];
 
-  constructor(private cosmicService: CosmicService) {}
+  constructor(private cmsService: CmsService) {}
 
   ngOnInit() {
-    this.cosmicService.getExternalLinks().subscribe(links => (this.links = links));
+    this.cmsService.getExternalLinks().subscribe(links => (this.links = links));
   }
 }

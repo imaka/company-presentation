@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EMPTY } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { CosmicService } from 'src/app/core';
+import { CmsService } from 'src/app/core';
 import { Page } from '@models/page';
 
 @Component({
@@ -13,13 +13,13 @@ import { Page } from '@models/page';
 export class PageComponent implements OnInit {
   public page: Page;
 
-  constructor(private route: ActivatedRoute, private cosmicService: CosmicService) {}
+  constructor(private route: ActivatedRoute, private cmsService: CmsService) {}
 
   ngOnInit() {
     this.route.paramMap
       .pipe(
         map(paramMap => paramMap.get('slug')),
-        switchMap(slug => (slug ? this.cosmicService.getPage(slug) : EMPTY))
+        switchMap(slug => (slug ? this.cmsService.getPage(slug) : EMPTY))
       )
       .subscribe(page => (this.page = page));
   }

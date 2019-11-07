@@ -4,10 +4,8 @@
 
 export const environment = {
   production: false,
-  read_key: '',
-  write_key: '',
-  bucket_slug: '',
-  cms_url: '',
+  space: '',
+  accessToken: '',
   presets: '',
   gcp_send_mail: '',
   sentry_dsn: ''

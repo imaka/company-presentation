@@ -11,25 +11,15 @@ fs.readFile(targetPath, 'utf8', function(readError, data) {
   }
   let result = data;
 
-  if (process.env.BUCKET) {
-    console.log('Updating BUCKET');
+  if (process.env.SPACE) {
+    console.log('Updating SPACE');
 
-    result = result.replace(/(bucket_slug:\s*')(.*)(',)/g, `$1${process.env.BUCKET}$3`);
+    result = result.replace(/(space:\s*')(.*)(',)/g, `$1${process.env.SPACE}$3`);
   }
-  if (process.env.READ_KEY) {
-    console.log('Updating READ_KEY');
+  if (process.env.ACCESS_TOKEN) {
+    console.log('Updating ACCESS_TOKEN');
 
-    result = result.replace(/(read_key:\s*')(.*)(',)/g, `$1${process.env.READ_KEY}$3`);
-  }
-  if (process.env.WRITE_KEY) {
-    console.log('Updating WRITE_KEY');
-
-    result = result.replace(/(write_key:\s*')(.*)(',)/g, `$1${process.env.WRITE_KEY}$3`);
-  }
-  if (process.env.CMS_URL) {
-    console.log('Updating CMS_URL');
-
-    result = result.replace(/(cms_url:\s*')(.*)(',)/g, `$1${process.env.CMS_URL}$3`);
+    result = result.replace(/(access_token:\s*')(.*)(',)/g, `$1${process.env.ACCESS_TOKEN}$3`);
   }
   if (process.env.PRESETS) {
     console.log('Updating PRESETS');

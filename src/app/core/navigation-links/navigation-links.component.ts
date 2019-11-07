@@ -1,21 +1,13 @@
-import { Component, OnChanges, Input } from '@angular/core';
-import { Navigation } from '@models/navigation';
-import { CosmicService } from '../_services/cosmic.service';
+import { Component, Input } from '@angular/core';
+import { Page } from '@models/page';
 
 @Component({
   selector: 'app-navigation-links',
   templateUrl: './navigation-links.component.html',
   styleUrls: ['./navigation-links.component.scss']
 })
-export class NavigationLinksComponent implements OnChanges {
-  @Input() navigationID: string;
-  public navigation: Navigation;
+export class NavigationLinksComponent {
+  @Input() navigation: Page[];
 
-  constructor(private cosmicService: CosmicService) {}
-
-  ngOnChanges() {
-    if (this.navigationID) {
-      this.cosmicService.getNavigation(this.navigationID).subscribe(navigation => (this.navigation = navigation));
-    }
-  }
+  constructor() {}
 }

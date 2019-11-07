@@ -1,3 +1,5 @@
+import { ContentfulParser } from './utils/contentful-parser';
+
 export class ExternalLink {
   _id: string;
   icon: string;
@@ -7,11 +9,13 @@ export class ExternalLink {
   url: string;
 
   constructor(obj) {
-    this._id = obj._id;
-    this.icon = obj.metadata.icon ? obj.metadata.icon.url : '';
-    this.slug = obj.slug;
-    this.title = obj.title;
-    this.text = obj.metadata.text;
-    this.url = obj.metadata.url;
+    const sys = obj.sys;
+    const fields = obj.fields;
+
+    this._id = sys.id;
+    this.icon = fields.icon ? ContentfulParser.getImageURL(fields.icon) : '';
+    this.title = fields.title;
+    this.text = fields.text;
+    this.url = fields.url;
   }
 }

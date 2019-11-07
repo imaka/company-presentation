@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CosmicService } from '../_services/cosmic.service';
+import { CmsService } from '../_services/cms.service';
+import { Page } from '@models/page';
 
 @Component({
   selector: 'app-footer-content',
@@ -7,19 +8,19 @@ import { CosmicService } from '../_services/cosmic.service';
   styleUrls: ['./footer-content.component.scss']
 })
 export class FooterContentComponent implements OnInit {
-  public footerNavigationID: string;
+  public footerNavigation: Page[];
   public gdprText: string;
   public footerLogo: string;
 
-  constructor(private cosmicService: CosmicService) {}
+  constructor(private cmsService: CmsService) {}
 
   ngOnInit() {
-    this.cosmicService.getMainPresets().subscribe(presets => {
+    this.cmsService.getMainPresets().subscribe(presets => {
       if (presets.gdprText) {
         this.gdprText = presets.gdprText;
       }
       if (presets.footerNavigation) {
-        this.footerNavigationID = presets.footerNavigation._id;
+        this.footerNavigation = presets.footerNavigation;
       }
       if (presets.footerLogo) {
         this.footerLogo = presets.footerLogo;

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CosmicService } from './cosmic.service';
+import { CmsService } from './cms.service';
 
-describe('CosmicService', () => {
+describe('cmsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CosmicService = TestBed.get(CosmicService);
+    const service: CmsService = TestBed.get(CmsService);
     expect(service).toBeTruthy();
   });
 });

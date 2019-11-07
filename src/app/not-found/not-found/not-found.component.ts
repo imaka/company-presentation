@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CosmicService } from 'src/app/core';
+import { CmsService } from 'src/app/core';
 
 @Component({
   selector: 'app-not-found',
@@ -9,9 +9,9 @@ import { CosmicService } from 'src/app/core';
 export class NotFoundComponent implements OnInit {
   public notFoundContent: string;
 
-  constructor(private cosmicService: CosmicService) {}
+  constructor(private cmsService: CmsService) {}
 
   ngOnInit() {
-    this.cosmicService.getMainPresets().subscribe(presets => (this.notFoundContent = presets.notFoundContent));
+    this.cmsService.getMainPresets().subscribe(presets => (this.notFoundContent = presets.notFoundContent));
   }
 }
