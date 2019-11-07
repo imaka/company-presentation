@@ -16,11 +16,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           if (environment.production) {
             Sentry.captureMessage(`[Handled] HttpErrorResponse with code ${response.status}`);
           }
-          if (response.status === 404) {
-            this.router.navigateByUrl('/not-found', { skipLocationChange: true });
-          } else {
-            window.location.href = 'coming-soon.html';
-          }
+          window.location.href = 'coming-soon.html';
           return EMPTY;
         } else {
           return throwError(response);
