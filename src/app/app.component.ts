@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CmsService, FaviconService } from './core';
+import { CmsService } from './core';
 import { AnalyticsService } from './ng-simple-analytics';
 import { Title } from '@angular/platform-browser';
 import { environment } from '@environments/environment';
+import { AngularFaviconService } from 'angular-favicon';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   constructor(
     private cmsService: CmsService,
     private titleService: Title,
-    private faviconService: FaviconService,
+    private faviconService: AngularFaviconService,
     private analyticsService: AnalyticsService
   ) {}
 
