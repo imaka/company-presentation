@@ -32,7 +32,7 @@ export class CmsService {
     if (!this.preset$.get(id)) {
       const promise: Promise<Entry<Preset>> = this.client.getEntry(id);
       const response = from(promise).pipe(
-        tap(_ => console.log(`fetched preset: ${id}`)),
+        tap(_ => console.log(`fetched preset: ${'id'}`)),
         map(_ => {
           return new Preset(_);
         }),

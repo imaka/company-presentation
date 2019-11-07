@@ -2,10 +2,6 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import * as Sentry from '@sentry/browser';
 import { environment } from '@environments/environment';
 
-Sentry.init({
-  dsn: environment.sentry_dsn
-});
-
 export class SentryErrorHandler implements ErrorHandler {
   handleError(error) {
     Sentry.captureException(error.originalError || error);
@@ -14,6 +10,9 @@ export class SentryErrorHandler implements ErrorHandler {
 
 export function provideErrorHandler() {
   if (environment.production) {
+    Sentry.init({
+      dsn: environment.sentry_dsn
+    });
     return new SentryErrorHandler();
   } else {
     return new ErrorHandler();
