@@ -8,6 +8,7 @@ import { Page } from '@models/page';
 import { Preset } from '@models/preset';
 import { ExternalLink } from '@models/external-link';
 import { Router } from '@angular/router';
+import * as Sentry from '@sentry/browser';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,8 @@ export class CmsService {
   private preset$ = new Map<string, Observable<Preset>>();
   private page$ = new Map<string, Observable<Page>>();
   private externalLinks$: Observable<ExternalLink[]>;
+
+  private PAGE_NOT_FOUND = 'Page not found';
 
   /** GET preset by id. Will 404 if id not found */
   getPreset(id: string): Observable<Preset> {
@@ -54,11 +57,13 @@ export class CmsService {
         'fields.slug': slug
       });
       const response = from(promise).pipe(
-        tap(_ => console.log(`fetched page: ${slug}`)),
-        map(_ => {
+        tap(_ => {
           if (_.total === 0) {
-            throw new Error('Not Found');
+            throw new Error(this.PAGE_NOT_FOUND);
           }
+          console.log(`fetched page: ${slug}`);
+        }),
+        map(_ => {
           return new Page(_.items[0]);
         }),
         shareReplay(1),
@@ -95,10 +100,13 @@ export class CmsService {
    */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      if (error.message === 'Not Found') {
+      if (error.message === this.PAGE_NOT_FOUND) {
         this.router.navigateByUrl('/not-found', { skipLocationChange: true });
+      }
+      // TODO: send the error to remote logging infrastructure
+      if (environment.production) {
+        Sentry.captureException(error.originalError || error);
       } else {
-        // TODO: send the error to remote logging infrastructure
         console.error(error); // log to console instead
       }
 
