@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   space: '',
-  accessToken: '',
+  access_token: '',
   presets: '',
   gcp_send_mail: '',
   sentry_dsn: ''

@@ -18,7 +18,7 @@ export class CmsService {
 
   private client = createClient({
     space: environment.space,
-    accessToken: environment.accessToken
+    accessToken: environment.access_token
   });
 
   private preset$ = new Map<string, Observable<Preset>>();
