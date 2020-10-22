@@ -13,6 +13,7 @@ export class Preset {
   gdprText: string;
   homepage: Page;
   mainNavigation: Page[];
+  maintenance: Boolean;
   notFoundContent: string;
   trackingID: string;
 
@@ -30,6 +31,7 @@ export class Preset {
     this.gdprText = ContentfulParser.parseRichText(fields.gdprText);
     this.homepage = new Page(fields.homepage);
     this.mainNavigation = [];
+    this.maintenance = fields.maintenance;
     this.notFoundContent = ContentfulParser.parseRichText(fields.notFoundContent);
     this.trackingID = fields.trackingId ? fields.trackingId : '';
 

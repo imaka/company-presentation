@@ -1,15 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MaintenanceGuard, SiteLayoutComponent } from './core';
 
 const routes: Routes = [
   /*{
     path: 'blog',
     loadChildren: './blog/blog.module#BlogModule'
   },*/
-  { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) },
+  { path: 'coming-soon', loadChildren: () => import('./coming-soon/coming-soon.module').then(m => m.ComingSoonModule) },
   {
     path: '',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+    component: SiteLayoutComponent,
+    children: [
+      { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) },
+      {
+        path: '',
+        canActivate: [MaintenanceGuard],
+        loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+      }
+    ]
   }
 ];
 

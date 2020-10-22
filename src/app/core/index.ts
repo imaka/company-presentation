@@ -6,3 +6,5 @@ export * from './navigation-links/navigation-links.component';
 export * from './_interceptors/http-error.interceptor';
 export * from './_services/cms.service';
 export * from './_services/mail.service';
+export * from './_guards/maintenance-guard';
+export * from './site-layout/site-layout.component';

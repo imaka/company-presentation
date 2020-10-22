@@ -8,9 +8,10 @@ import { NavigationLinksComponent } from './navigation-links/navigation-links.co
 import { NgSimpleAnalyticsModule } from '../ng-simple-analytics';
 import { FooterContentComponent } from './footer-content/footer-content.component';
 import { SharedModule } from '../shared/shared.module';
+import { SiteLayoutComponent } from './site-layout/site-layout.component';
 
 @NgModule({
-  declarations: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent, FooterContentComponent],
+  declarations: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent, FooterContentComponent, SiteLayoutComponent],
   imports: [CommonModule, RouterModule, NgSimpleAnalyticsModule, SharedModule],
   exports: [MenuComponent, ExternalLinksComponent, NavigationLinksComponent, FooterContentComponent]
 })

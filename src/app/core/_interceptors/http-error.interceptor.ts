@@ -13,7 +13,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         return throwError(response);
       }),
       finalize(() => {
-        window.location.href = 'coming-soon.html';
+        this.router.navigateByUrl('/coming-soon');
         return EMPTY;
       })
     );
