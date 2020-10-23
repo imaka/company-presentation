@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CmsService } from './core';
-import { AnalyticsService } from './ng-simple-analytics';
 import { Title } from '@angular/platform-browser';
-import { environment } from '@environments/environment';
 import { AngularFaviconService } from 'angular-favicon';
+import { AnalyticsService } from './ng-simple-analytics';
+import { environment } from '@environments/environment';
+import { CmsService } from './core';
 
 @Component({
   selector: 'app-root',

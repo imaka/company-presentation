@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageComponent } from './page/page.component';
-import { HomepageGuard } from '../core/_guards/homepage-guard';
+import { HomepageGuard } from '../core';
 
 const routes: Routes = [
   {

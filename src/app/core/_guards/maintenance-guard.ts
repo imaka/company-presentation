@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { CmsService } from '../_services/cms.service';
-import { environment } from '../../../environments/environment';
+import { environment } from '@environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class MaintenanceGuard implements CanActivate {
