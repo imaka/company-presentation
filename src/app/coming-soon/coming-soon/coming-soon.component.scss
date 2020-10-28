@@ -1,0 +1,32 @@
+@import '../../../styles/variables.scss';
+
+h1 {
+  color: $clear-neutral;
+  font-family: $family-secondary;
+}
+article {
+  color: $clear-neutral;
+}
+#mail {
+  color: $contrast;
+}
+#phone,
+#linkedin,
+#instagram,
+#twitter {
+  color: $split;
+}
+.direct-contact,
+.social {
+  margin: 40px 0;
+}
+.direct-contact li a:hover {
+  text-decoration: underline;
+}
+.social li {
+  display: inline-block;
+  margin: 0 10px;
+}
+.social li a:hover {
+  color: $contrast !important;
+}
