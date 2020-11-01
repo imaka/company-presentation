@@ -1,5 +1,5 @@
-import { Component, ViewChild, Input } from '@angular/core';
-import { MailService } from 'src/app/core';
+import { Component, ViewChild, Input, OnInit } from '@angular/core';
+import { CmsService, MailService } from 'src/app/core';
 import { NgForm } from '@angular/forms';
 import { Email } from '@models/email';
 
@@ -8,15 +8,24 @@ import { Email } from '@models/email';
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss']
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements OnInit {
   // @ViewChild('contactForm') public contactForm: NgForm;
   @Input() context: string;
   public submitted = false;
   public loading = false;
   public resultMessage = '';
   public model = new Email();
+  private successMessage = '';
+  private errorMessage = '';
 
-  constructor(private mailService: MailService) {}
+  constructor(private mailService: MailService, private cmsService: CmsService) {}
+
+  ngOnInit() {
+    this.cmsService.getMainPresets().subscribe(presets => {
+      this.errorMessage = presets.emailErrorMessage;
+      this.successMessage = presets.emailSuccessMessage;
+    });
+  }
 
   onSubmit(contactForm: NgForm) {
     this.loading = true;
@@ -29,10 +38,9 @@ export class ContactFormComponent {
       if (response.data) {
         contactForm.reset();
         contactForm.form.markAsPristine();
-        this.resultMessage = '¡Enviado! Muchas gracias por contactar conmigo';
+        this.resultMessage = this.successMessage;
       } else {
-        this.resultMessage =
-          'Se ha producido un error, si no quieres volver a intentarlo, ¡siempre puedes contactarme en las redes sociales!';
+        this.resultMessage = this.errorMessage;
       }
     });
   }

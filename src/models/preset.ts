@@ -7,6 +7,8 @@ export class Preset {
   alternateFaviconUrl: string;
   companyName: string;
   companyLogoUrl: string;
+  emailErrorMessage: string;
+  emailSuccessMessage: string;
   faviconUrl: string;
   footerLogo: string;
   footerNavigation: Page[];
@@ -24,6 +26,8 @@ export class Preset {
     this._id = sys.id;
     this.companyName = fields.companyName;
     this.companyLogoUrl = ContentfulParser.getImageURL(fields.companyLogo);
+    this.emailErrorMessage = fields.emailErrorMessage ? fields.emailErrorMessage : '';
+    this.emailSuccessMessage = fields.emailSuccessMessage ? fields.emailSuccessMessage : '';
     this.faviconUrl = fields.favicon ? ContentfulParser.getImageURL(fields.favicon) : '';
     this.alternateFaviconUrl = fields.alternativeFavicon ? ContentfulParser.getImageURL(fields.alternativeFavicon) : '';
     this.footerLogo = fields.footerLogo ? ContentfulParser.getImageURL(fields.footerLogo) : '';
