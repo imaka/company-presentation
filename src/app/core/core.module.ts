@@ -2,7 +2,7 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
-import { throwIfAlreadyLoaded } from './_guards/module-import-guards';
+import { throwIfAlreadyLoaded } from './_guards/module-import.guard';
 import { ExternalLinksComponent } from './external-links/external-links.component';
 import { NavigationLinksComponent } from './navigation-links/navigation-links.component';
 import { NgSimpleAnalyticsModule } from '../ng-simple-analytics';
