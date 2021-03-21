@@ -1,4 +1,0 @@
-# Preventing Netlify to handle 404s, all routes will be
-# redirected to the index, so the Angular router will take over
-
-/* /index.html 200

@@ -1,0 +1,12 @@
+# Prettier path for netlify functions
+[[redirects]]
+  from = '/api/*'
+  to = '/.netlify/functions/:splat'
+  status = 200
+
+# Preventing Netlify to handle 404s, all routes will be
+# redirected to the index, so the Angular router will take over
+[[redirects]]
+  from = '/*'
+  to = '/index.html'
+  status = 200
