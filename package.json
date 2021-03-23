@@ -37,6 +37,7 @@
     "contentful": "^7.15.2",
     "core-js": "^2.6.12",
     "font-awesome": "^4.7.0",
+    "nodemailer": "^6.5.0",
     "rxjs": "^6.6.6",
     "zone.js": "~0.10.3"
   },
