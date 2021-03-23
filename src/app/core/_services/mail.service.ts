@@ -22,7 +22,7 @@ export class MailService {
       })
     };
 
-    return this.http.post(environment.gcp_send_mail, body, httpOptions).pipe(catchError(this.handleError('send mail', [])));
+    return this.http.post('/api/send-mail', body, httpOptions).pipe(catchError(this.handleError('send mail', [])));
   }
 
   /**

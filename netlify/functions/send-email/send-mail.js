@@ -19,16 +19,16 @@ const handler = async event => {
     secure: true,
     auth: {
       type: 'OAuth2',
-      user: process.env.GMAIL_ADDRESS,
-      serviceClient: process.env.CLIENT_ID,
-      privateKey: process.env.PRIVATE_KEY.replace(/\\n/g, '\n')
+      user: process.env.NFX_SENDMAIL_GMAIL_ADDRESS,
+      serviceClient: process.env.NFX_SENDMAIL_CLIENT_ID,
+      privateKey: process.env.NFX_SENDMAIL_PRIVATE_KEY.replace(/\\n/g, '\n')
     }
   });
 
   const mailOptions = {
-    from: body.from || process.env.MAIL_FROM,
-    to: body.to || process.env.MAIL_TO,
-    bcc: body.bcc || process.env.MAIL_BCC,
+    from: body.from || process.env.NFX_SENDMAIL_MAIL_FROM,
+    to: body.to || process.env.NFX_SENDMAIL_MAIL_TO,
+    bcc: body.bcc || process.env.NFX_SENDMAIL_MAIL_BCC,
     subject: body.subject,
     text: body.text
   };

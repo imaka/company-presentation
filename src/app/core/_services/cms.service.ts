@@ -17,8 +17,8 @@ export class CmsService {
   constructor(private http: HttpClient, private router: Router) {}
 
   private client = createClient({
-    space: environment.space,
-    accessToken: environment.access_token
+    space: environment.contentful_space,
+    accessToken: environment.contentful_access_token
   });
 
   private preset$ = new Map<string, Observable<Preset>>();
@@ -46,7 +46,7 @@ export class CmsService {
 
   /** Shortcut to GET main preset */
   getMainPresets(): Observable<Preset> {
-    return this.getPreset(environment.presets);
+    return this.getPreset(environment.contentful_presets);
   }
 
   /** GET page by slug. Will 404 if id not found */

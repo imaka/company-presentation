@@ -4,10 +4,9 @@
 
 export const environment = {
   production: false,
-  space: '',
-  access_token: '',
-  presets: '',
-  gcp_send_mail: '',
+  contentful_space: '',
+  contentful_access_token: '',
+  contentful_presets: '',
   sentry_dsn: ''
 };
 

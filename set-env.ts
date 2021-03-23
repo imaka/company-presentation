@@ -11,25 +11,20 @@ fs.readFile(targetPath, 'utf8', function(readError, data) {
   }
   let result = data;
 
-  if (process.env.SPACE) {
+  if (process.env.CONTENTFUL_SPACE) {
     console.log('Updating SPACE');
 
     result = result.replace(/(space:\s*')(.*)(',)/g, `$1${process.env.SPACE}$3`);
   }
-  if (process.env.ACCESS_TOKEN) {
+  if (process.env.CONTENTFUL_ACCESS_TOKEN) {
     console.log('Updating ACCESS_TOKEN');
 
     result = result.replace(/(access_token:\s*')(.*)(',)/g, `$1${process.env.ACCESS_TOKEN}$3`);
   }
-  if (process.env.PRESETS) {
+  if (process.env.CONTENTFUL_PRESETS) {
     console.log('Updating PRESETS');
 
     result = result.replace(/(presets:\s*')(.*)(',)/g, `$1${process.env.PRESETS}$3`);
-  }
-  if (process.env.GCP_SEND_MAIL) {
-    console.log('Updating GCP_SEND_MAIL');
-
-    result = result.replace(/(gcp_send_mail:\s*')(.*)(',)/g, `$1${process.env.GCP_SEND_MAIL}$3`);
   }
   if (process.env.SENTRY_DSN) {
     console.log('Updating SENTRY_DSN');
