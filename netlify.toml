@@ -1,3 +1,8 @@
+[build]
+# base = ""
+  publish = "dist/textual-studio"
+  command = "npm run build-prod-with-config"
+
 # Prettier path for netlify functions
 [[redirects]]
   from = '/api/*'
