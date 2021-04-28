@@ -1,7 +1,9 @@
 const process = require('process');
 const nodeMailer = require('nodemailer');
 
-const { validateParams } = require('./utils');
+const validateParams = body => {
+  return body.subject && body.text;
+};
 
 /**
  * Responds only to POST requests.
