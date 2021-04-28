@@ -32,6 +32,8 @@ fs.readFile(targetPath, 'utf8', function(readError, data) {
     result = result.replace(/(sentry_dsn:\s*')(.*)(',?)/g, `$1${process.env.SENTRY_DSN}$3`);
   }
 
+  console.log(result);
+
   fs.writeFile(targetPath, result, 'utf8', function(writeError) {
     if (writeError) {
       return console.log(writeError);
