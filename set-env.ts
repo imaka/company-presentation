@@ -14,25 +14,23 @@ fs.readFile(targetPath, 'utf8', function(readError, data) {
   if (process.env.CONTENTFUL_SPACE) {
     console.log('Updating SPACE');
 
-    result = result.replace(/(space:\s*')(.*)(',?)/g, `$1${process.env.SPACE}$3`);
+    result = result.replace(/(space:\s*')(.*)(',?)/g, `$1${process.env.CONTENTFUL_SPACE}$3`);
   }
   if (process.env.CONTENTFUL_ACCESS_TOKEN) {
     console.log('Updating ACCESS_TOKEN');
 
-    result = result.replace(/(access_token:\s*')(.*)(',?)/g, `$1${process.env.ACCESS_TOKEN}$3`);
+    result = result.replace(/(access_token:\s*')(.*)(',?)/g, `$1${process.env.CONTENTFUL_ACCESS_TOKEN}$3`);
   }
   if (process.env.CONTENTFUL_PRESETS) {
     console.log('Updating PRESETS');
 
-    result = result.replace(/(presets:\s*')(.*)(',?)/g, `$1${process.env.PRESETS}$3`);
+    result = result.replace(/(presets:\s*')(.*)(',?)/g, `$1${process.env.CONTENTFUL_PRESETS}$3`);
   }
   if (process.env.SENTRY_DSN) {
     console.log('Updating SENTRY_DSN');
 
     result = result.replace(/(sentry_dsn:\s*')(.*)(',?)/g, `$1${process.env.SENTRY_DSN}$3`);
   }
-
-  console.log(result);
 
   fs.writeFile(targetPath, result, 'utf8', function(writeError) {
     if (writeError) {
